@@ -180,4 +180,5 @@ font-family:'Times New Roman', Times, serif ;
 .boton {
   width: 40%;
   background-color: #87ceeb;
+  border-radius: 10PX;
 }
