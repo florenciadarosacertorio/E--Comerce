@@ -1,4 +1,4 @@
-//const array = []
+
 
 const guardarDatos = () => {
     const correo = document.getElementById("correo");
