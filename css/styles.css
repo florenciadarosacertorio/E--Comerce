@@ -147,10 +147,10 @@ a.custom-card:hover {
 }
 
 .form {
-width: 500px;
+width: 360px;
 height:250px;
 padding: 30px 30px;
-background-color: #f0ffff;
+background-color: #f8f9fa;
 margin: auto;
 margin-top: 50px;
 box-shadow: 8px 10px 30px #dcdcdc;
@@ -165,7 +165,7 @@ font-family:'Times New Roman', Times, serif ;
   text-align: center;
   height: 60px;
   font-size: 45px;
-  color: #696969;
+  color: #229fbc  ;
   font-weight: bold;
 }
 
@@ -179,18 +179,23 @@ font-family:'Times New Roman', Times, serif ;
 
 .boton {
   width: 40%;
-  background-color: #87ceeb;
+  background-color: #54a396  ;
   border-radius: 10PX;
+}
+.boton:hover {
+  background-color: #229fbc;
 }
 
 .contenedor {
-  border: 1px solid rgba(0, 0, 0, 0.514);
+  border: 1px solid #343a40
+  ;
    margin: 40px 10px;
    background-color: #6c757d;
 }
 
 .row {
   padding: 20px;
+  color: white;
 }
 
 .cost {
