@@ -51,6 +51,4 @@ document.addEventListener("DOMContentLoaded", function(e){
   }
 });
 
-//window.location="login.html";
-
 

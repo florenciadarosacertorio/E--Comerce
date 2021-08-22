@@ -8,7 +8,6 @@ const guardarDatos = () => {
     if (correoValor && contraValor) {
       correo.value = "";
       contraseña.value = "";
-      //array.push({ correoValor, contraValor });
       localStorage.setItem("correoValor", correoValor );
       localStorage.setItem("contraValor", contraValor );
       window.location = "index.html";
