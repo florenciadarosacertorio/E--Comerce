@@ -48,7 +48,10 @@ var getJSONData = function(url){
 document.addEventListener("DOMContentLoaded", function(e){
   if(!localStorage.getItem("correoValor")){
     window.location = "login.html"
+  } else {
+    const correo = window.localStorage.getItem("correoValor");
+    const datos = document.getElementsByClassName("container d-flex flex-column flex-md-row justify-content-between")
+    const datos1 =datos[0]
+    datos1.innerHTML += `<div><p style="color:white">Bienvenido</p><a class="py-2 d-none d-md-inline-block" href= "#">${correo}</a></div>`
   }
 });
-
-

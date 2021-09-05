@@ -1,25 +1,3 @@
-/* const showList = (productos) => {
-    const infoBasica = document.createElement("ul")
-    for (let product of productos){
-        const li_product = document.createElement("li");
-        li_product.appendChild(document.createTextNode(`El producto es:${product.name} su descripción: ${product.description} con un costo de:${product.cost}`))
-        infoBasica.appendChild(li_product);
-    }
-   document.body.appendChild(infoBasica)
-}
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            showList(resultObj.data);
-        }
-    });
-}); */
-
 
 var categoriesArray = [];
 
@@ -50,11 +28,55 @@ function showCategoriesList(array){
     }
 }
 
+let az = "AZ"
+let za = "ZA"
+let cant = "Cant."
+
+function sortData(criterio,array){
+   let result = [];
+   if (criterio === az){
+      result = array.sort (function (a, b){
+       if ( a.cost > b.cost ){ return -1; }
+       if ( a.cost < b.cost ){ return 1; }
+       return 0;
+      })
+   }
+   else if (criterio === za){
+       result = array.sort(function (a,b){
+           if ( a.cost > b.cost ){ return 1; }
+           if ( a.cost < b.cost ){ return -1; }
+           return 0;
+       })
+   }else if (criterio === cant){
+       result = array.sort(function(a, b) {
+           let aCount = parseInt(a.soldCount);
+           let bCount = parseInt(b.soldCount);
+
+           if ( aCount > bCount ){ return -1; }
+           if ( aCount < bCount ){ return 1; }
+           return 0;
+       });
+   }
+   showCategoriesList(array)
+}
+
+
+ function filtrar (array){
+    let elemMin = document.getElementById("min")
+    let elemMax = document.getElementById("max")
+    let min = elemMin.value;
+    let max = elemMax.value;
+    
+  return categoriesArray = (array.filter(valor => valor.cost >= min && max >= valor.cost))
+
+   }
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
+document.addEventListener("DOMContentLoaded", function(e){ 
+   getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
@@ -62,5 +84,30 @@ document.addEventListener("DOMContentLoaded", function(e){
             showCategoriesList(categoriesArray);
         }
     });
-});
     
+    document.getElementById("AZ").addEventListener("click", function(){
+        sortData("AZ",categoriesArray)
+    })
+    document.getElementById("ZA").addEventListener("click", function(){
+        sortData("ZA", categoriesArray)
+    })
+    document.getElementById("relev").addEventListener("click", function(){
+        sortData("Cant.", categoriesArray)
+    })
+    document.getElementById("filtro").addEventListener("click", function(){
+        filtrar(categoriesArray)
+    })
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
