@@ -52,8 +52,8 @@ function sortData(criterio,array){
            let aCount = parseInt(a.soldCount);
            let bCount = parseInt(b.soldCount);
 
-           if ( aCount > bCount ){ return -1; }
-           if ( aCount < bCount ){ return 1; }
+           if ( aCount > bCount ){ return 1; }
+           if ( aCount < bCount ){ return -1; }
            return 0;
        });
    }
