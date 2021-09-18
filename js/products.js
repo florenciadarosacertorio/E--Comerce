@@ -1,4 +1,8 @@
 
+const productInfo = () => {
+    window.location = "product-info.html"
+}
+
 var categoriesArray = [];
 
 function showCategoriesList(array){
@@ -97,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("filtro").addEventListener("click", function(){
         filtrar(categoriesArray)
     })
+
+    document.getElementById("cat-list-container").addEventListener("click", productInfo)
 
 });
 

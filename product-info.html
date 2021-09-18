@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -25,14 +26,97 @@
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <div class="container mt-5">
+    <div class="text-center p-4">
+      <h1>Información del producto</h1>
     </div>
+    <hr class="my-3">
+    <h3 id="name"></h3>
+
+    <dl>
+
+      <dt>Categoría</dt>
+      <dd>
+        <p id="category"></p>
+      </dd>
+
+      <dt>Descripción</dt>
+      <dd>
+        <p id="description"></p>
+      </dd>
+
+      <dt>Costo</dt>
+      <dd>
+        <p id="cost"> </p>
+        <p id="currency"></p>
+      </dd>
+
+      <dt>Cantidad de vendidos</dt>
+      <dd>
+        <p id="soldCount"></p>
+      </dd>
+
+      <dt>Imágenes del producto</dt>
+      <dd>
+        <div class="row text-center text-lg-left pt-2" id="imgProduct"></div>
+      </dd>
+    </dl>
   </div>
+  <div class="container p-5">
+    <form action="/action_page.php">
+      <div class="md-form">
+        <h3>Realice su comentario</h3> <br>
+        <hr class="my-3"> <br>
+        <textarea class="md-textarea form-control" id="1" value="" rows="3"
+          placeholder="Comente aquí"></textarea>
+      </div>
+
+      <!-- <div class="container p-5">
+        <p>Puntuación del producto:</p>
+        <label class="fa fa-star checked" id="puntos1">
+          <input type="radio" name="puntos">1
+        </label>
+        <label id="puntos2" class="fa fa-star checked">
+          <input type="radio" name="puntos">2
+        </label>
+        <label id="puntos3" class="fa fa-star checked">
+          <input type="radio" name="puntos">3
+        </label>
+        <label id="puntos4" class="fa fa-star checked">
+          <input type="radio" name="puntos">4
+        </label>
+        <label id="puntos5" class="fa fa-star checked">
+          <input type="radio" name="puntos" autocomplete="off" checked>5
+        </label>
+      </div> -->
+      
+<div class="star" >
+      <p class="clasificacion">
+        <input id="radio1" type="radio" name="estrellas" value="5"><!--
+        --><label for="radio1">★</label><!--
+        --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+        --><label for="radio2">★</label><!--
+        --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+        --><label for="radio3">★</label><!--
+        --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+        --><label for="radio4">★</label><!--
+        --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+        --><label for="radio5">★</label>
+      </p>
+    </div>
+
+      <br>
+      <input type="button" value="Enviar" id="send" class="btn btn-outline-info">
+    </form>
+  </div>
+<div class="container p-5">
+  <h3>Comentarios de clientes</h3>
+  <hr class="my-3">
+
+<div id="commentProduct"></div>
+</div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
