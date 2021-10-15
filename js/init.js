@@ -52,6 +52,18 @@ document.addEventListener("DOMContentLoaded", function(e){
     const correo = window.localStorage.getItem("correoValor");
     const datos = document.getElementsByClassName("container d-flex flex-column flex-md-row justify-content-between")
     const datos1 =datos[0]
-    datos1.innerHTML += `<div><p style="color:white">Bienvenido</p><a class="py-2 d-none d-md-inline-block" href= "#">${correo}</a></div>`
+    datos1.innerHTML += `
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Bienvenido, ${correo}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+    <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+    <a class="dropdown-item" href="login.html" id="login" >Cerrar sesión</a>
+  </div>
+</div>`
+
+document.getElementById("login").addEventListener("click", () => localStorage.removeItem("correo"))
   }
 });
