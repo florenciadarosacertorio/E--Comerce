@@ -42,16 +42,44 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
     </div>
   </nav>
-
+<div  class="container">
+<h3>Productos seleccionados</h3>
 
   <div id="cartInfo"></div>
 
-  <div>
-    <label>Cantidad:</label> <input type="number" value="1" id="cant">
+  <div >
+    <label>Cantidad de artículos:</label> <input type="number" value="1" id="cant">
     <br>
-    <label>Subtotal:</label> <p id="subtotal"></p>
+    <label>Subtotal:</label> <p id="subtotal"></p>  
   </div>
 
+  <div>
+    <p>Costo de envío estandar:</p> <p id="envio"></p>
+  </div>
+ 
+
+  <div>
+    <h4>Total</h4> <p id="total"></p>
+  </div>
+<hr>
+
+
+  <div>
+    <p>Forma de pago:</p>
+    <div class="custom-control custom-radio">
+      <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+      <label class="custom-control-label" for="goldradio">Tarjeta de crédito</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+      <label class="custom-control-label" for="premiumradio">Transferencia bancaria</label>
+    </div>
+  </div>
+  <hr>
+<br>
+
+<br>  <button class="btn btn-primary btn-lg" type="submit" id="comprar">Comprar</button>
+</div>
   <img id="src" src="" alt="">
   <div id="spinner-wrapper">
     <div class="lds-ring">

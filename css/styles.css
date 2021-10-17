@@ -265,3 +265,14 @@ input[type="radio"]:checked ~ label {
   color: orange;
 }
 
+.carrito {
+  border: 1px solid #d8dbdf
+  ;
+   margin: 40px 10px;
+   background-color: #b6c2ce;
+   color: black;
+}
+
+#subtotal {
+  border: 1px solid grey;
+}

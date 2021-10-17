@@ -4,7 +4,7 @@ function showCart(cart){
     let htmlContentToAppend = "";
     htmlContentToAppend += `
 
-    <div class="contenedor">
+    <div class="carrito">
         <div class="row">
             <div class="col-3">
                 <img src="` + cart.articles[0].src + `" alt="` + `" class="img-thumbnail">
@@ -12,19 +12,20 @@ function showCart(cart){
             <div class="col">
                 <div class="d-flex w-100 justify-content-between">
                     <h4 class="mb-1 nombre">`+ cart.articles[0].name +`</h4>
-                    <small class="cost"> <span class="precio"> Precio: </span>` + cart.articles[0].unitCost + cart.articles[0].currency + ` </small>
+                    <small class="cost"> <span class="precio"> Precio unitario: </span>` + cart.articles[0].unitCost + cart.articles[0].currency + ` </small>
                 </div>
                 <p>  Cantidad:  `+ cant.value  + `  </p>
             </div>
         </div>
     </div>
+    <hr>
     `
 
     document.getElementById("cartInfo").innerHTML = htmlContentToAppend;
 
 }
 
-function total (cart){
+function subtotal (cart){
     var cant = document.getElementById('cant').value;
 
     let htmlContentToAppend = '';
@@ -38,25 +39,55 @@ function total (cart){
 
     document.getElementById('subtotal').innerHTML = htmlContentToAppend
 }
+function envios (){
+    var subtotal = document.getElementById('subtotal').textContent;
+
+    let htmlContentToAppend = '';
+
+    htmlContentToAppend = 
+    `<div >
+    <div >`
+        + subtotal*0.05  +
+        `</div>
+    </div>`
+
+    document.getElementById('envio').innerHTML = htmlContentToAppend
+}
+
+function total (){
+    var subtotal = document.getElementById('subtotal').textContent;
+    var envio = document.getElementById("envio").textContent;
+    const suma = subtotal+envio
+
+    let htmlContentToAppend = '';
+
+    htmlContentToAppend = 
+    `<div >
+    <div >`
+    + parseFloat(suma) +
+    `</div>
+    </div>`
+
+    document.getElementById('total').innerHTML = htmlContentToAppend
+}
+
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", async function (e) {
-    // getJSONData(CART_INFO_URL).then(function (resultObj) {
-    //     if (resultObj.status === "ok") {
-    //         cart = resultObj.data;
-    //         showCart(cart);
-    //     }
-    // });
    
     const cart= (await getJSONData(CART_INFO_URL)).data
     showCart(cart)
 
 
     document.getElementById('cant').addEventListener('change', ()=> showCart(cart))
-    document.getElementById('cant').addEventListener('change', ()=> total(cart))
+    document.getElementById('cant').addEventListener('change', ()=> subtotal(cart))
+    document.getElementById('cant').addEventListener('change', ()=> envios())
+    document.getElementById('cant').addEventListener('change', ()=> total())
+    document.getElementById("comprar").addEventListener("click", ()=> alert("Compra realizada con éxito") )
+
 });
 
 
