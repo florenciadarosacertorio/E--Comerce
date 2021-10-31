@@ -1,3 +1,4 @@
+"use strict"
 const cart = [];
 
 function showCart(cart){

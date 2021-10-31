@@ -22,47 +22,47 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-     
+
     </div>
   </nav>
   <div class="container p-5">
     <div>
-       <div class="text-center p-4">
-            <h2 class="listado">Listado</h2>
-        </div>
+      <div class="text-center p-4">
+        <h2 class="listado">Listado</h2>
+      </div>
+      <div>
+        <h5>Organizar</h5>
         <div>
-          <h5>Organizar</h5>
-          <div>
           <div>
             <input type="number" placeholder="min." id="min">
           </div>
-          <div >
+          <div>
             <input type="number" placeholder="máx." id="max">
           </div>
           <div>
             <div class="btn-group" role="group">
-              <button  id="filtro">Filtrar</button>
-              <button  id="limpiar">Limpiar</button>
+              <button id="filtro">Filtrar</button>
+              <button id="limpiar">Limpiar</button>
             </div>
             <br>
             <br>
-          <label id="AZ" >
-            <input type="radio" name="org">Ascendente
-        </label>
-        <label id="ZA" >
-          <input type="radio" name="org">Descendente
-      </label>
-      <label id="relev" >
-        <input type="radio" name="org">Relevancia
-    </label>
+            <label id="AZ">
+              <input type="radio" name="org">Ascendente
+            </label>
+            <label id="ZA">
+              <input type="radio" name="org">Descendente
+            </label>
+            <label id="relev">
+              <input type="radio" name="org">Relevancia
+            </label>
+          </div>
         </div>
       </div>
-        <div class="container">
-            <div class="row">
-                <div class="list-group" id="cat-list-container">
-                </div>
-            </div>
-        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="list-group" id="cat">
     </div>
   </div>
   <footer class="text-muted bg-light">

@@ -1,3 +1,4 @@
+"use strict"
 const save = () => {
     document.getElementById("1").value = "";
 };

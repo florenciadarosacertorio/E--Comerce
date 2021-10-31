@@ -1,3 +1,4 @@
+"use strict"
 const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
 const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   </div>
 </div>`
 
-document.getElementById("login").addEventListener("click", () => localStorage.removeItem("correo"))
+  // condicional que si el local Storage.getitem ( era distinito de nullo o indefinido que mostrara en el imput lo que etsba ane el local)
   }
+  document.getElementById("login").addEventListener("click", () => localStorage.clear())
 });

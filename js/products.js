@@ -1,4 +1,4 @@
-
+"use strict"
 const productInfo = () => {
     window.location = "product-info.html"
 }
@@ -10,25 +10,25 @@ function showCategoriesList(array){
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
         let category = array[i];
-
+       
         htmlContentToAppend += `
-        <div class="contenedor">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1 nombre">`+ category.name +`</h4>
-                        <small class="cost"> <span class="precio"> Precio: </span>` + category.cost +  ` $</small>
+        <a  class="list-group-item list-group-item-action">
+        <div class="row">
+                    <div class="col-3">
+                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                     </div>
-                    <p> `+ category.description +`  </p>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ category.name +`</h4>
+                            <small class="text-muted">` + category.cost + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + category.description + `</p>
+                    </div>
                 </div>
-            </div>
-        </div>
+         </a>
         `
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("cat").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         filtrar(categoriesArray)
     })
 
-    document.getElementById("cat-list-container").addEventListener("click", productInfo)
+    document.getElementById("cat").addEventListener("click", productInfo)
 
 });
 

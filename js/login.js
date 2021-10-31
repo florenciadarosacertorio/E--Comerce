@@ -1,4 +1,4 @@
-
+"use strict"
 
 const guardarDatos = () => {
     const correo = document.getElementById("correo");

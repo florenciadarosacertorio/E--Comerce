@@ -276,3 +276,24 @@ input[type="radio"]:checked ~ label {
 #subtotal {
   border: 1px solid grey;
 }
+
+.col {
+  color: black;
+}
+
+/* @media  (max-width: 600px) {
+  .imagen {
+    width: 100%;
+    height: auto;
+  }
+} */
+
+.imagen {
+  max-width:100%; 
+  height:auto;
+}
+
+/* .img-thumbnail {
+  width:100%;
+} */ 
+
