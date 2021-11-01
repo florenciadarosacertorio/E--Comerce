@@ -33,7 +33,7 @@ const show = () => {
     const name = localStorage.getItem("name1");
     const age = localStorage.getItem("age1");
     const email = localStorage.getItem("email1");
-    const phone = JSON.parse(localStorage.getItem("phone1"));
+    const phone = localStorage.getItem("phone1");
     const perfil = document.getElementById("perfil")
 
     perfil.innerHTML +=
