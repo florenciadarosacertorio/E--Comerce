@@ -40,32 +40,64 @@ function subtotal (cart){
 
     document.getElementById('subtotal').innerHTML = htmlContentToAppend
 }
+
+function enviop (){
+    var subtotal = document.getElementById('subtotal').textContent;
+
+    let htmlContentToAppend = '';
+
+        htmlContentToAppend = 
+        `<div >
+        <div >`
+            + subtotal*0.15  +
+            `</div>
+        </div>`
+    
+        document.getElementById('envio').innerHTML = htmlContentToAppend
+}
+function envioe (){
+    var subtotal = document.getElementById('subtotal').textContent;
+
+    let htmlContentToAppend = '';
+
+        htmlContentToAppend = 
+        `<div >
+        <div >`
+            + parseInt(subtotal*0.07)   +
+            `</div>
+        </div>`
+    
+        document.getElementById('envio').innerHTML = htmlContentToAppend
+}
 function envios (){
     var subtotal = document.getElementById('subtotal').textContent;
 
     let htmlContentToAppend = '';
 
-    htmlContentToAppend = 
-    `<div >
-    <div >`
-        + subtotal*0.05  +
-        `</div>
-    </div>`
-
-    document.getElementById('envio').innerHTML = htmlContentToAppend
+        htmlContentToAppend = 
+        `<div >
+        <div >`
+            + subtotal*0.05  +
+            `</div>
+        </div>`
+    
+        document.getElementById('envio').innerHTML = htmlContentToAppend
 }
+
+
+
 
 function total (){
     var subtotal = document.getElementById('subtotal').textContent;
     var envio = document.getElementById("envio").textContent;
-    const suma = subtotal+envio
+
 
     let htmlContentToAppend = '';
 
     htmlContentToAppend = 
     `<div >
     <div >`
-    + parseFloat(suma) +
+    + `${parseInt(subtotal)+parseInt(envio)}` +
     `</div>
     </div>`
 
@@ -87,7 +119,7 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     document.getElementById('cant').addEventListener('change', ()=> subtotal(cart))
     document.getElementById('cant').addEventListener('change', ()=> envios())
     document.getElementById('cant').addEventListener('change', ()=> total())
-    document.getElementById("comprar").addEventListener("click", ()=> alert("Compra realizada con éxito") )
+    // document.getElementById("comprar").addEventListener("click", ()=> alert("Compra realizada con éxito") )
 
 });
 
