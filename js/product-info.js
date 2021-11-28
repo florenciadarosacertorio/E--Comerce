@@ -6,6 +6,8 @@ const save = () => {
 
 var productInfo = {};
 
+
+
 function showImgInfo(array) {
 
     let htmlContentToAppend = "";
@@ -59,10 +61,24 @@ function showComment(array) {
     }
 }
 
+var productRel = {};
+function showReProducts (arr) {
+    let htmlContentToAppend = "";
+    const array = arr.relatedProducts
+    for (let value of array){
+        const relProducts = productRel[value]
 
-function rProducts () {
-    
+        htmlContentToAppend += `
+        <div class="col-3 mb-4">
+        <h4 class="mb-1">`+ relProducts.name +`</h4>
+        <img src="` + relProducts.imgSrc + `" alt="`
+        `</div>
+        `
+        document.getElementById("prodRela").innerHTML = htmlContentToAppend;
+    }
 }
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -100,6 +116,15 @@ document.addEventListener("DOMContentLoaded",function (e) {
             showComment(productComments);
         }
     });
+    
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productRel = resultObj.data;
+            showReProducts(productRel)
+        }
+    });
+
+   
 
 
     document.getElementById("send").addEventListener("click", save);

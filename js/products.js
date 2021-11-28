@@ -3,32 +3,32 @@ const productInfo = () => {
     window.location = "product-info.html"
 }
 
-var categoriesArray = [];
+var productsArray = [];
 
-function showCategoriesList(array){
+function showProductsList(array){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
-        let category = array[i];
+        let products = array[i];
        
         htmlContentToAppend += `
         <a  class="list-group-item list-group-item-action">
         <div class="row">
                     <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                        <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">` + category.cost + ` artículos</small>
+                            <h4 class="mb-1">`+ products.name +`</h4>
+                            <small class="text-muted">` + products.cost + ` artículos</small>
                         </div>
-                        <p class="mb-1">` + category.description + `</p>
+                        <p class="mb-1">` + products.description + `</p>
                     </div>
                 </div>
          </a>
         `
 
-        document.getElementById("cat").innerHTML = htmlContentToAppend;
+        document.getElementById("prod").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -61,7 +61,7 @@ function sortData(criterio,array){
            return 0;
        });
    }
-   showCategoriesList(array)
+   showProductsList(array)
 }
 
 
@@ -71,7 +71,7 @@ function sortData(criterio,array){
     let min = elemMin.value;
     let max = elemMax.value;
     
-  return categoriesArray = (array.filter(valor => valor.cost >= min && max >= valor.cost))
+  return productsArray = (array.filter(valor => valor.cost >= min && max >= valor.cost))
 
    }
 
@@ -83,26 +83,26 @@ document.addEventListener("DOMContentLoaded", function(e){
    getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            categoriesArray = resultObj.data;
+            productsArray = resultObj.data;
             //Muestro las categorías ordenadas
-            showCategoriesList(categoriesArray);
+            showProductsList(productsArray);
         }
     });
     
     document.getElementById("AZ").addEventListener("click", function(){
-        sortData("AZ",categoriesArray)
+        sortData("AZ",productsArray)
     })
     document.getElementById("ZA").addEventListener("click", function(){
-        sortData("ZA", categoriesArray)
+        sortData("ZA", productsArray)
     })
     document.getElementById("relev").addEventListener("click", function(){
-        sortData("Cant.", categoriesArray)
+        sortData("Cant.", productsArray)
     })
     document.getElementById("filtro").addEventListener("click", function(){
-        filtrar(categoriesArray)
+        filtrar(productsArray)
     })
 
-    document.getElementById("cat").addEventListener("click", productInfo)
+    document.getElementById("prod").addEventListener("click", productInfo)
 
 });
 

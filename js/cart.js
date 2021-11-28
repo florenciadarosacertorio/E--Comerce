@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     document.getElementById('cant').addEventListener('change', ()=> subtotal(cart))
     document.getElementById('cant').addEventListener('change', ()=> envios())
     document.getElementById('cant').addEventListener('change', ()=> total())
-    // document.getElementById("comprar").addEventListener("click", ()=> alert("Compra realizada con éxito") )
+    document.getElementById("comprar").addEventListener("click", ()=> alert("Compra realizada con éxito") )
 
 });
 

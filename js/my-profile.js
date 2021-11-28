@@ -10,7 +10,7 @@ const save = () => {
   const ageValue = age.value;
   const email = document.getElementById("email");
   const emailValue = email.value;
-  const phone = document.getElementById("phone").value;
+  const phone = document.getElementById("phone");
   const phoneValue = phone.value;
 
   if (name && age) {
@@ -52,6 +52,7 @@ const show = () => {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
+  show();
   document.getElementById("save").addEventListener("click", save)
   document.getElementById("save").addEventListener("click", show);
 
